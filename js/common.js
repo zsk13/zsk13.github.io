@@ -11,7 +11,7 @@ var com = com||{};
 
 com.init = function (stype){
 
-	com.nowStype= stype || com.getCookie("stype") ||"stype1";
+	com.nowStype= stype || com.getCookie("stype") ||"stype3";
 	var stype = com.stype[com.nowStype];
 	com.width			=	stype.width;		//画布宽度
 	com.height			=	stype.height; 		//画布高度
@@ -53,7 +53,17 @@ com.stype = {
 		pointStartX:-2,		//第一个着点X坐标;
 		pointStartY:0,		//第一个着点Y坐标;
 		page:"stype_2"	//图片目录
+	},
+	stype3:{
+		width:630,		//画布宽度
+		height:700, 		//画布高度
+		spaceX:65,		//着点X跨度
+		spaceY:65,		//着点Y跨度
+		pointStartX:-2,		//第一个着点X坐标;
+		pointStartY:0,		//第一个着点Y坐标;
+		page:"stype_2"	//图片目录
 	}
+
 }
 //获取ID
 com.get = function (id){
