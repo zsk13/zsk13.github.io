@@ -1,36 +1,36 @@
 /**
  * ChinaChess - in html5
  * http://www.jnzo.com/chess/
- * @ author Ò»Ò¶¹ÂÖÛ
+ * @ author ä¸€å¶å­¤èˆŸ
  * @ mail itlwei@163.com
  * @ QQ 28701884
  */
 
 var bill = bill || {};
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 bill.init = function (){
 	if (com.store){
 		clearInterval(bill.timer);
-		bill.setBillList(com.arr2Clone(com.initMap)); //Ğ´ÈëÆåÆ×ÁĞ±í
-		play.isPlay=false;	
+		bill.setBillList(com.arr2Clone(com.initMap)); //å†™å…¥æ£‹è°±åˆ—è¡¨
+		play.isPlay=false;
 		com.show();
 	}else {
-		bill.timer = setInterval("bill.init()",300);	
+		bill.timer = setInterval("bill.init()",300);
 	}
 }
 
 
-//°ÑËùÓĞÆåÆ×Ğ´ÈëÆåÆ×ÁĞ±í
+//æŠŠæ‰€æœ‰æ£‹è°±å†™å…¥æ£‹è°±åˆ—è¡¨
 bill.setBillList = function (map){
 	var list=com.get("billList")
 	for (var i=0; i < com.store.length ; i++){
 		var option = document.createElement('option');
-		 option.text='ÆåÆ×'+(i+1);
+		 option.text='æ£‹è°±'+(i+1);
 		 option.value=i;
 		list.add(option , null);
 	}
-	
+
 	list.addEventListener("change", function(e) {
 		bill.setBox (com.store[this.value], map)
 	})
@@ -38,7 +38,7 @@ bill.setBillList = function (map){
 }
 
 
-//ÆåÆ×·ÖÎö Ğ´Èë
+//æ£‹è°±åˆ†æ å†™å…¥
 bill.setMove = function (bl,inx,map){
 	var map = com.arr2Clone(map);
 	for (var i=0; i<map.length; i++){
@@ -61,21 +61,21 @@ bill.setMove = function (bl,inx,map){
 		if (com.mans[map[newY][newX]]) {
 			com.mans[map[newY][newX]].isShow = false;
 		}
-		
+
 		com.mans[map[y][x]].x = newX;
 		com.mans[map[y][x]].y = newY;
-		
+
 		if (i == inx) {
 			com.showPane(x ,y,newX,newY);
 		}
 		map[newY][newX] = map[y][x];
 		delete map[y][x];
-		
+
 	}
 	return map;
 }
 
-//Ğ´ÈëÆåÆ×
+//å†™å…¥æ£‹è°±
 bill.setBox = function (bl,initMap){
 	var map = com.arr2Clone(initMap);
 	var bl= bl.split("");
@@ -90,12 +90,12 @@ bill.setBox = function (bl,initMap){
 		h +='</li>\n\r';
 	}
 	com.get("billBox").innerHTML = h;
-	
+
 	var doms=com.get("billBox").getElementsByTagName("li");
-	
+
 	for (var i=0; i<doms.length; i++){
 			doms[i].addEventListener("click", function(e) {
-				
+
 			var inx = this.getAttribute("id").split("_")[1];
 			bill.setMove (bl , inx , initMap)
 			com.show();
