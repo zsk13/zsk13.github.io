@@ -11,7 +11,7 @@ var com = com||{};
 
 com.init = function (stype){
 
-	com.nowStype= stype || com.getCookie("stype") ||"stype3";
+	com.nowStype= stype || com.getCookie("stype") ||"stype2";
 	var stype = com.stype[com.nowStype];
 	com.width			=	stype.width;		//画布宽度
 	com.height			=	stype.height; 		//画布高度
@@ -54,6 +54,7 @@ com.stype = {
 		pointStartY:0,		//第一个着点Y坐标;
 		page:"stype_2"	//图片目录
 	},
+	//待调试成可以用都
 	stype3:{
 		width:630,		//画布宽度
 		height:700, 		//画布高度
